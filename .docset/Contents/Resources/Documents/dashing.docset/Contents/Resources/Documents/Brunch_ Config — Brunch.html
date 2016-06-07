@@ -1,0 +1,361 @@
+<!DOCTYPE html><!-- saved from url=(0028)http://brunch.io/docs/config --><html class=" grunticon" data-ember-extension="1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><title>Brunch: Config &mdash; Brunch</title><meta name="description" content="Brunch builds, lints, compiles, concatenates and shrinks your HTML5 app in an ultra-simple way. No more Grunt / Gulp mess."/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="shortcut icon" type="image/x-icon" href="http://brunch.io/favicon.ico"/><link rel="stylesheet" href="./Brunch_ Config &mdash; Brunch_files/app.css"/><link rel="publisher" href="https://plus.google.com/+PaulMillerLi"/><link rel="stylesheet" href="./Brunch_ Config &mdash; Brunch_files/tomorrow.min.css"/><link rel="stylesheet" href="./Brunch_ Config &mdash; Brunch_files/icons.data.svg.css" media="all"/><script type="text/javascript" async="" id="gauges-tracker" data-site-id="4f1631bbcb25bc723b000007" src="http://secure.gaug.es/track.js"></script><script src="./Brunch_ Config &mdash; Brunch_files/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();</script><!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script>/*! grunt-grunticon Stylesheet Loader - v2.1.6 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+
+!function(){function e(e,n,t){"use strict";var o=window.document.createElement("link"),a=n||window.document.getElementsByTagName("script")[0],i=window.document.styleSheets;return o.rel="stylesheet",o.href=e,o.media="only x",a.parentNode.insertBefore(o,a),o.onloadcssdefined=function(e){for(var n,t=0;t<i.length;t++)i[t].href&&i[t].href===o.href&&(n=!0);n?e():setTimeout(function(){o.onloadcssdefined(e)})},o.onloadcssdefined(function(){o.media=t||"all"}),o}function n(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}!function(t){var o=function(a,i){"use strict";if(a&&3===a.length){var r=t.navigator,d=t.document,s=t.Image,c=!(!d.createElementNS||!d.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!d.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||t.opera&&-1===r.userAgent.indexOf("Chrome")||-1!==r.userAgent.indexOf("Series40")),l=new s;l.onerror=function(){o.method="png",o.href=a[2],e(a[2])},l.onload=function(){var t=1===l.width&&1===l.height,r=a[t&&c?0:t?1:2];t&&c?o.method="svg":t?o.method="datapng":o.method="png",o.href=r,n(e(r),i)},l.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",d.documentElement.className+=" grunticon"}};o.loadCSS=e,o.onloadCSS=n,t.grunticon=o}(this)}();grunticon( [ "/images/svg/icons.data.svg.css", "/images/svg/icons.data.png.css", "/images/svg/icons.fallback.css" ] );</script><style></style></head><body><div id="navbar"><div class="container"><a href="http://brunch.io/" class="icon-brunch-logo-web"></a><ul class="nav nav--main-nav"><li><a href="http://brunch.io/" class="nav__item--main-nav">Home</a></li><li><a href="http://brunch.io/docs/getting-started" class="nav__item--main-nav active">Docs</a></li><li><a href="http://brunch.io/plugins" class="nav__item--main-nav">Plugins</a></li><li><a href="http://brunch.io/skeletons" class="nav__item--main-nav">Skeletons</a></li><li><a href="http://brunch.io/examples" class="nav__item--main-nav">In Production</a></li><li><a href="http://brunch.io/support" class="nav__item--main-nav">Community</a></li></ul></div></div><div class="page__content container"><div class="grid"><div class="grid__item one-whole desk-one-quarter"><div class="doc-sidebar"><div class="doc-section"><h3>Quick Start</h3><ul><li><a href="http://brunch.io/docs/getting-started">Getting started</a></li><li><a href="http://brunch.io/docs/concepts">Core concepts</a></li><li><a href="http://brunch.io/docs/why-brunch">Why Brunch</a></li><li><a href="http://brunch.io/docs/using-plugins">Using plugins</a></li><li><a href="http://brunch.io/docs/using-modules">Using JS modules and NPM</a></li><li><a href="http://brunch.io/docs/testing">Testing</a></li><li><a href="http://brunch.io/docs/deploying">Deploying</a></li></ul></div><div class="doc-section"><h3>Reference</h3><ul><li><a href="http://brunch.io/docs/commands">Commands</a></li><li><span class="active">Config</span></li><li><a href="http://brunch.io/docs/plugins">Plugin API</a></li><li><a href="http://brunch.io/docs/troubleshooting">Troubleshooting</a></li><li><a href="https://github.com/brunch/brunch/blob/master/CHANGELOG.md" target="_blank" class="external">Changelog</a></li></ul></div><div class="doc-section"><h3>Community Resources</h3><ul><li><a href="https://github.com/brunch/brunch-guide" target="_blank" class="external">The Brunch Guide</a></li></ul></div></div></div><div class="grid__item one-whole desk-three-quarters doc-content"><h1 id="">Brunch: Config<a name="brunch-config">&nbsp;</a></h1>
+<p>Brunch uses configuration file <a class="dashingAutolink" name="autolink-0"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch-config.js"></a><code>brunch-config.js</code> <em>(or <a class="dashingAutolink" name="autolink-1"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/.coffee"></a><code>.coffee</code>)</em> to manage various
+aspects of your app.</p>
+<ul>
+<li><a href="http://brunch.io/docs/config#-paths-"><strong></strong></a><strong><a class="dashingAutolink" name="autolink-2"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/paths"></a><code>paths</code></strong> - where to take files from and where to put generated ones</li>
+<li><a href="http://brunch.io/docs/config#-files-"><strong></strong></a><strong><a class="dashingAutolink" name="autolink-3"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files"></a><code>files</code></strong> - which files exactly should Brunch generate and how.</li>
+<li><a href="http://brunch.io/docs/config#-npm-"><strong></strong></a><strong><a class="dashingAutolink" name="autolink-4"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm"></a><code>npm</code></strong> - NPM dependencies settings</li>
+<li><a href="http://brunch.io/docs/config#-plugins="><strong></strong></a><strong><a class="dashingAutolink" name="autolink-5"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/plugins"></a><code>plugins</code></strong> - individual plugin settings.</li>
+</ul>
+<p>Less common options:</p>
+<ul>
+<li><a href="http://brunch.io/docs/config#-modules-"></a><a class="dashingAutolink" name="autolink-6"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules"></a><code>modules</code> - specifies details of JS module implementation, such as <a class="dashingAutolink" name="autolink-7"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/wrapper"></a><code>wrapper</code>, <a class="dashingAutolink" name="autolink-8"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/definition"></a><code>definition</code>, <a class="dashingAutolink" name="autolink-9"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/autoRequire"></a><code>autoRequire</code> and <a class="dashingAutolink" name="autolink-10"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/nameCleaner"></a><code>nameCleaner</code>.</li>
+<li><a href="http://brunch.io/docs/config#-conventions-"></a><a class="dashingAutolink" name="autolink-11"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/conventions"></a><code>conventions</code> - defines which files are treated as assets and which ones are ignored in your app.</li>
+<li><a href="http://brunch.io/docs/config#-watcher-"></a><a class="dashingAutolink" name="autolink-12"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/watcher"></a><code>watcher</code> - low-level configuration of the file watcher which empowers Brunch.</li>
+<li><a href="http://brunch.io/docs/config#-server-"></a><a class="dashingAutolink" name="autolink-13"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/server"></a><code>server</code> - allows to describe custom web-servers instead of the built-in one.</li>
+<li><a class="dashingAutolink" name="autolink-14"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/sourceMaps"></a><code>sourceMaps</code>, <a class="dashingAutolink" name="autolink-15"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/optimize"></a><code>optimize</code>, <a class="dashingAutolink" name="autolink-16"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/notifications"></a><code>notifications</code>, <a class="dashingAutolink" name="autolink-17"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/notificationsTitle"></a><code>notificationsTitle</code> - simple true/false options</li>
+<li><a href="http://brunch.io/docs/config#-hooks-"></a><a class="dashingAutolink" name="autolink-18"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/hooks"></a><code>hooks</code> - allows to specify handlers for different moments of building cycle</li>
+</ul>
+<p><span class="note">
+  You can see the config schema, and all the defaults, in the <a class="dashingAutolink" name="autolink-19"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/configBaseSchema"></a><code>configBaseSchema</code> of <a href="https://github.com/brunch/brunch/blob/master/lib/config.js#L27"></a><a class="dashingAutolink" name="autolink-20"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/lib%2Fconfig.js"></a><code>lib/config.js</code> in the Brunch source code.
+</span></p>
+<h2 id="">Example<a name="example">&nbsp;</a></h2>
+<p>Simplest Brunch config looks like that. Just 7 lines of pure configuration:</p>
+<pre><a class="dashingAutolink" name="autolink-21"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/module.exports%20%3D%20%7B%0A%20%20files%3A%20%7B%0A%20%20%20%20javascripts%3A%20%7BjoinTo%3A%20%27app.js%27%7D%2C%0A%20%20%20%20stylesheets%3A%20%7BjoinTo%3A%20%27app.css%27%7D%2C%0A%20%20%20%20templates%3A%20%7BjoinTo%3A%20%27app.js%27%7D%0A%20%20%7D%0A%7D"></a><code class="lang-javascript hljs"><span class="hljs-built_in">module</span>.exports = {
+  files: {
+    javascripts: {joinTo: <span class="hljs-string">&#39;app.js&#39;</span>},
+    stylesheets: {joinTo: <span class="hljs-string">&#39;app.css&#39;</span>},
+    templates: {joinTo: <span class="hljs-string">&#39;app.js&#39;</span>}
+  }
+}
+</code></pre>
+<p>Each Brunch config is an executable script,
+so you can also execute arbitrary JS and import Node.js modules there.</p>
+<h2 id=""><a class="dashingAutolink" name="autolink-22"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/paths"></a><a class="dashingAutolink" name="autolink-15"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/paths"></a><code>paths</code><a name="-paths-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-23"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: <a class="dashingAutolink" name="autolink-24"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/paths"></a><code>paths</code> contains application paths to key directories. Paths are simple strings.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-25"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/public"></a><code>public</code> key: path to build directory that would contain output.</li>
+<li><a class="dashingAutolink" name="autolink-26"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/watched"></a><code>watched</code> key: list of all watched paths by brunch. Default:
+<a class="dashingAutolink" name="autolink-27"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%5B%27app%27%2C%20%27test%27%2C%20%27vendor%27%5D"></a><code>[&#39;app&#39;, &#39;test&#39;, &#39;vendor&#39;]</code></li>
+</ul>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-28"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/paths%3A%20%7B%0A%20%20public%3A%20%27%2Fuser%2Fwww%2Fdeploy%27%0A%7D"></a><code class="lang-javascript hljs">paths: {
+  public: <span class="hljs-string">&#39;/user/www/deploy&#39;</span>
+}
+</code></pre>
+<h2 id=""><a class="dashingAutolink" name="autolink-29"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files"></a><a class="dashingAutolink" name="autolink-16"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files"></a><code>files</code><a name="-files-">&nbsp;</a></h2>
+<p>(<a class="dashingAutolink" name="autolink-30"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/javascripts%2C%20stylesheets%2C%20templates"></a><code>javascripts, stylesheets, templates</code>; <a class="dashingAutolink" name="autolink-31"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/joinTo"></a><code>joinTo</code>s and <a class="dashingAutolink" name="autolink-32"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/order"></a><code>order</code>)</p>
+<p><a class="dashingAutolink" name="autolink-33"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Required%2C%20object"></a><code>Required, object</code>: <a class="dashingAutolink" name="autolink-34"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files"></a><code>files</code> configures handling of application files: which compiler would be used on which file, what name should output file have etc. Any paths specified here must be listed in <a class="dashingAutolink" name="autolink-35"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/paths.watched"></a><code>paths.watched</code> as described above, for building.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-36"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%3Ctype%3E"></a><code>&lt;type&gt;</code>: <a class="dashingAutolink" name="autolink-37"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/javascripts"></a><code>javascripts</code>, <a class="dashingAutolink" name="autolink-38"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/stylesheets"></a><code>stylesheets</code> or <a class="dashingAutolink" name="autolink-39"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/templates"></a><code>templates</code><ul>
+<li>joinTo: (required) describes how files will be compiled &amp; joined together.
+Available formats:<ul>
+<li>&#39;outputFilePath&#39; in order to have all source files compiled together to one</li>
+<li>map of (&#39;outputFilePath&#39;: <a href="https://github.com/es128/anymatch#anymatch-">anymatch set</a>)</li>
+</ul>
+</li>
+<li>entryPoints: (optional) describes the entry points of an application. The specified file and all of its dependencies will then be joined into a single file. Resembles <a class="dashingAutolink" name="autolink-40"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/joinTo"></a><code>joinTo</code> but allows to included only the files you need.
+Available formats:<ul>
+<li><a class="dashingAutolink" name="autolink-41"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%27entryFile.js%27%3A%20%27outputFilePath%27"></a><code>&#39;entryFile.js&#39;: &#39;outputFilePath&#39;</code></li>
+<li>`&#39;entryFile.js&#39;: map of (&#39;outputFilePath&#39;: anymatch set)</li>
+</ul>
+</li>
+<li>order: (optional) defines compilation order. <a class="dashingAutolink" name="autolink-42"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor"></a><code>vendor</code> files will be compiled before other ones even if they are not present here.<ul>
+<li>before: <a href="https://github.com/es128/anymatch#anymatch-">anymatch set</a> defining files that will be loaded before other files</li>
+<li>after: <a href="https://github.com/es128/anymatch#anymatch-">anymatch set</a> defining files that will be loaded after other files</li>
+</ul>
+</li>
+<li>pluginHelpers: (optional) specify which output file (or array of files) plugins&#39; include files concatenate into. Defaults to the output file that <a class="dashingAutolink" name="autolink-43"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor"></a><code>vendor</code> files are being joined to, the first one with <a class="dashingAutolink" name="autolink-44"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor"></a><code>vendor</code> in its name/path, or just the first output file listed in your joinTo object.</li>
+</ul>
+</li>
+</ul>
+<p>All files from <a class="dashingAutolink" name="autolink-45"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor"></a><code>vendor</code> directory are by default concatenated before all files from <a class="dashingAutolink" name="autolink-46"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/app"></a><code>app</code> directory. So, <a class="dashingAutolink" name="autolink-47"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor%2Fscripts%2Fjquery.js"></a><code>vendor/scripts/jquery.js</code> would be loaded before <a class="dashingAutolink" name="autolink-48"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/app%2Fscript.js"></a><code>app/script.js</code> even if order config is empty. Files from Bower packages are included by default before the <a class="dashingAutolink" name="autolink-49"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor"></a><code>vendor</code> files.</p>
+<p>Overall ordering is [before] -&gt; [bower] -&gt; [vendor] -&gt; [everything else] -&gt; [after]</p>
+<p>Common example:</p>
+<pre><a class="dashingAutolink" name="autolink-50"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files%3A%20%7B%0A%20%20javascripts%3A%20%7B%0A%20%20%20%20joinTo%3A%20%7B%0A%20%20%20%20%20%20%27javascripts%2Fapp.js%27%3A%20%2F%5Eapp%2F%2C%0A%20%20%20%20%20%20%27javascripts%2Fvendor.js%27%3A%20%2F%5E%28%3F%21app%29%2F%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20stylesheets%3A%20%7B%0A%20%20%20%20joinTo%3A%20%27stylesheets%2Fapp.css%27%0A%20%20%7D%2C%0A%20%20templates%3A%20%7B%0A%20%20%20%20joinTo%3A%20%27javascripts%2Fapp.js%27%0A%20%20%7D%0A%7D"></a><code class="lang-javascript hljs">files: {
+  javascripts: {
+    joinTo: {
+      <span class="hljs-string">&#39;javascripts/app.js&#39;</span>: <span class="hljs-regexp">/^app/</span>,
+      <span class="hljs-string">&#39;javascripts/vendor.js&#39;</span>: <span class="hljs-regexp">/^(?!app)/</span>
+    }
+  },
+  stylesheets: {
+    joinTo: <span class="hljs-string">&#39;stylesheets/app.css&#39;</span>
+  },
+  templates: {
+    joinTo: <span class="hljs-string">&#39;javascripts/app.js&#39;</span>
+  }
+}
+</code></pre>
+<h3 id="">A note on entry points<a name="a-note-on-entry-points">&nbsp;</a></h3>
+<p>It is important to keep a few things in mind regarding entry points &amp; their known limitations:</p>
+<ul>
+<li>only the things you <a class="dashingAutolink" name="autolink-51"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/require"></a><code>require</code> will be included into an entryPoint bundle. This means non-app/non-npm deps won&#39;t be included. Also means only statically analyzable <a class="dashingAutolink" name="autolink-52"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/require"></a><code>require</code>s will work:<ul>
+<li><a class="dashingAutolink" name="autolink-53"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/require%28%27something%27%29"></a><code>require(&#39;something&#39;)</code> &mdash; :+1:</li>
+<li><a class="dashingAutolink" name="autolink-54"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%5B%27a%27%2C%20%27b%27%2C%20%27c%27%5D.forEach%28dep%20%3D%3E%20require%28dep%29%29"></a><code>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;].forEach(dep =&gt; require(dep))</code> &mdash; :-1:</li>
+<li><a class="dashingAutolink" name="autolink-55"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/match%28%27%2F%27%2C%20%27app%2FHome%27%29"></a><code>match(&#39;/&#39;, &#39;app/Home&#39;)</code> (where <a class="dashingAutolink" name="autolink-56"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/app%2FHome"></a><code>app/Home</code> gets translated into <a class="dashingAutolink" name="autolink-57"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/require%28%27components%2Fapp%2FHome%27%29"></a><code>require(&#39;components/app/Home&#39;)</code>) &mdash; :-1:</li>
+</ul>
+</li>
+<li><p>two entry points can&#39;t write to the same file</p>
+<pre><a class="dashingAutolink" name="autolink-58"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/javascripts%3A%20%7B%0A%20%20entryPoints%3A%20%7B%0A%20%20%20%20%27app%2Finitialize.coffee%27%3A%20%27javascripts%2Fbundle.js%27%2C%0A%20%20%20%20%2F%2F%20INVALID%0A%20%20%20%20%27app%2Fbookmarklet.coffee%27%3A%20%27javascripts%2Fbundle.js%27%0A%20%20%7D%0A%7D"></a><code class="lang-javascript hljs">javascripts: {
+  entryPoints: {
+    <span class="hljs-string">&#39;app/initialize.coffee&#39;</span>: <span class="hljs-string">&#39;javascripts/bundle.js&#39;</span>,
+    <span class="hljs-comment">// INVALID</span>
+    <span class="hljs-string">&#39;app/bookmarklet.coffee&#39;</span>: <span class="hljs-string">&#39;javascripts/bundle.js&#39;</span>
+  }
+}
+</code></pre>
+</li>
+<li>all <a class="dashingAutolink" name="autolink-59"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/config.npm.globals"></a><code>config.npm.globals</code> will be included in <strong>every</strong> entry point and joinTo</li>
+<li><a class="dashingAutolink" name="autolink-60"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/entryPoints"></a><code>entryPoints</code> only work with javascript files. If you want to also include your templates, keep a <a class="dashingAutolink" name="autolink-61"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/joinTo"></a><code>joinTo</code> for them</li>
+</ul>
+<h2 id=""><a class="dashingAutolink" name="autolink-62"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm"></a><a class="dashingAutolink" name="autolink-17"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm"></a><code>npm</code><a name="-npm-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-63"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: configures NPM integration for front-end packages. Make sure you also declare the packages you depend on in your package.json <a class="dashingAutolink" name="autolink-64"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/dependencies"></a><code>dependencies</code> section.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-65"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm.enabled"></a><code>npm.enabled</code>: <a class="dashingAutolink" name="autolink-66"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Boolean"></a><code>Boolean</code>: a toggle of whether the integration is enabled, defaults to <a class="dashingAutolink" name="autolink-67"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/true"></a><code>true</code>.</li>
+<li><a class="dashingAutolink" name="autolink-68"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm.globals"></a><code>npm.globals</code>: <a class="dashingAutolink" name="autolink-69"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: a mapping from global name (as a key) to the corresponding module name (string) to expose.</li>
+<li><a class="dashingAutolink" name="autolink-70"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm.styles"></a><code>npm.styles</code>: <a class="dashingAutolink" name="autolink-71"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: a mapping from package name (string) to an array of stylesheet paths (relative to package root) to be included into the build.</li>
+<li><a class="dashingAutolink" name="autolink-72"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm.static"></a><code>npm.static</code>: <a class="dashingAutolink" name="autolink-73"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Array"></a><code>Array</code>: a list of javascript files from npm packages to be included as-is, without analyzing their dependencies or wrapping them into modules.</li>
+</ul>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-74"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm%3A%20%7B%0A%20%20styles%3A%20%7Bpikaday%3A%20%5B%27css%2Fpikaday.css%27%5D%7D%0A%20%20globals%3A%20%7BPikaday%3A%20%27pikaday%27%7D%0A%7D"></a><code class="lang-javascript hljs">npm: {
+  styles: {pikaday: [<span class="hljs-string">&#39;css/pikaday.css&#39;</span>]}
+  globals: {Pikaday: <span class="hljs-string">&#39;pikaday&#39;</span>}
+}
+</code></pre>
+<h2 id=""><a class="dashingAutolink" name="autolink-75"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/plugins"></a><a class="dashingAutolink" name="autolink-18"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/plugins"></a><code>plugins</code><a name="-plugins-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-76"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: Optional control to modify how plugins are loaded by default, as well as containing plugin-specific configuration.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-77"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/off"></a><code>off</code>: Plugins that may be installed, but should not be run.</li>
+<li><a class="dashingAutolink" name="autolink-78"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/on"></a><code>on</code>: Forces listed plugins to be run, such as an optimizer even when the <a class="dashingAutolink" name="autolink-79"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/optimize"></a><code>optimize</code> flag is off.</li>
+<li><a class="dashingAutolink" name="autolink-80"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/only"></a><code>only</code>: Explicitly list the plugins to be used, ignoring any others that are installed.</li>
+<li><a class="dashingAutolink" name="autolink-81"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/npm"></a><code>npm</code>: An array list of plugin names that will compile <a class="dashingAutolink" name="autolink-82"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/node_modules%2F"></a><code>node_modules/</code>. Defaults to <a class="dashingAutolink" name="autolink-83"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%5B%5D"></a><code>[]</code>. <em>(Note: for the time being, it works only with <a class="dashingAutolink" name="autolink-84"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/.js"></a><code>.js</code> files)</em></li>
+<li><em>Per-Plugin</em>: Refer to each plugin&#39;s documentation for usage information.</li>
+</ul>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-85"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/plugins%3A%20%7B%0A%20%20on%3A%20%5B%27autoprefixer-brunch%27%5D%2C%0A%20%20off%3A%20%5B%27jade-brunch%27%2C%20%27static-jade-brunch%27%5D%2C%0A%20%20npm%3A%20%5B%27babel-brunch%27%5D%2C%0A%20%20autoReload%3A%20%7Benabled%3A%20true%7D%0A%7D"></a><code class="lang-javascript hljs">plugins: {
+  on: [<span class="hljs-string">&#39;autoprefixer-brunch&#39;</span>],
+  off: [<span class="hljs-string">&#39;jade-brunch&#39;</span>, <span class="hljs-string">&#39;static-jade-brunch&#39;</span>],
+  npm: [<span class="hljs-string">&#39;babel-brunch&#39;</span>],
+  autoReload: {enabled: <span class="hljs-literal">true</span>}
+}
+</code></pre>
+<h2 id=""><a class="dashingAutolink" name="autolink-86"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/conventions"></a><a class="dashingAutolink" name="autolink-19"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/conventions"></a><code>conventions</code><a name="-conventions-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-87"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: <a class="dashingAutolink" name="autolink-88"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/conventions"></a><code>conventions</code> define tests, against which all file pathnames will be checked.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-89"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/ignored"></a><code>ignored</code> key: <a href="https://github.com/es128/anymatch#anymatch-">anymatch set</a>. Will check against files that should be ignored by brunch compiler, but are still watched by the watcher. For example, when you have <a class="dashingAutolink" name="autolink-90"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/common.styl"></a><code>common.styl</code> file that you import in every stylus file, <a class="dashingAutolink" name="autolink-91"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/common.styl"></a><code>common.styl</code> will be compiled on its own too which will result in duplicated code. When prefixing it with underscore (<a class="dashingAutolink" name="autolink-92"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/_common.styl"></a><code>_common.styl</code>) you are still able to import it in dependent files, but it won&rsquo;t be compiled twice. The feature is very similar to <a href="http://wiseheartdesign.com/articles/2010/01/22/structuring-a-sass-project/">Sass partials</a>. By default, files and directories that start with underscore (<a class="dashingAutolink" name="autolink-93"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/_"></a><code>_</code>) will be ignored, as well as anything under the <a class="dashingAutolink" name="autolink-94"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor%2Fnode%2F"></a><code>vendor/node/</code>, <a class="dashingAutolink" name="autolink-95"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor%2Fruby-%2A%2F"></a><code>vendor/ruby-*/</code>, <a class="dashingAutolink" name="autolink-96"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor%2Fjruby-%2A%2F"></a><code>vendor/jruby-*/</code>, and <a class="dashingAutolink" name="autolink-97"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor%2Fbundle%2F"></a><code>vendor/bundle/</code> directories.</li>
+<li><a class="dashingAutolink" name="autolink-98"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/assets"></a><code>assets</code> key: <a href="https://github.com/es128/anymatch#anymatch-">anymatch set</a>. Default value: <a class="dashingAutolink" name="autolink-99"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2Fassets%5B%5C%5C%2F%5D%2F"></a><code>/assets[\\/]/</code>. If test gives true, file won&#39;t be compiled and will be just moved to public directory instead.</li>
+<li><a class="dashingAutolink" name="autolink-100"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor"></a><code>vendor</code> key: <a href="https://github.com/es128/anymatch#anymatch-">anymatch set</a>. Default value: <a class="dashingAutolink" name="autolink-101"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%28%5Ebower_components%7Cnode_modules%7Cvendor%29%5B%5C%5C%2F%5D%2F"></a><code>/(^bower_components|node_modules|vendor)[\\/]/</code>. If test gives true, file won&#39;t be wrapped in module, if there are any.</li>
+</ul>
+<p>Keep in mind that default brunch regexps, as you see, consider <strong>all</strong> <a class="dashingAutolink" name="autolink-102"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/vendor%2F"></a><code>vendor/</code> (etc.) directories as vendor (etc.) files. So, <a class="dashingAutolink" name="autolink-103"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/app%2Fviews%2Fvendor%2Fthing%2Fchaplin_view.coffee"></a><code>app/views/vendor/thing/chaplin_view.coffee</code> will be treated as vendor file.</p>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-104"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/conventions%3A%20%7B%0A%20%20ignored%3A%20%28%28%29%20%3D%3E%20false%29%2C%20%2F%2F%20override%20defaults%20for%20no%20ignored%20files%0A%20%20assets%3A%20%2Ffiles%5B%5C%5C%2F%5D%2F%20%20%2F%2F%20vendor%2Fjquery%2Ffiles%2Fjq.img%0A%7D"></a><code class="lang-javascript hljs">conventions: {
+  ignored: (() =&gt; <span class="hljs-literal">false</span>), <span class="hljs-comment">// override defaults for no ignored files</span>
+  assets: <span class="hljs-regexp">/files[\\/]/</span>  <span class="hljs-comment">// vendor/jquery/files/jq.img</span>
+}
+</code></pre>
+<p>If you want to add to the ignore pattern instead of replace, you must copy the defaults into your config.</p>
+<p>Default ignore pattern:</p>
+<pre><a class="dashingAutolink" name="autolink-105"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/conventions%3A%20%7B%0A%20%20ignored%3A%20%5B%0A%20%20%20%20%2F%5B%5C%5C%2F%5D_%2F%2C%0A%20%20%20%20%2Fvendor%5B%5C%5C%2F%5Dnode%5B%5C%5C%2F%5D%2F%2C%0A%20%20%20%20%2Fvendor%5B%5C%5C%2F%5D%28j%3Fruby-.%2A%7Cbundle%29%5B%5C%5C%2F%5D%2F%0A%20%20%5D%0A%7D"></a><code class="lang-javascript hljs">conventions: {
+  ignored: [
+    <span class="hljs-regexp">/[\\/]_/</span>,
+    <span class="hljs-regexp">/vendor[\\/]node[\\/]/</span>,
+    <span class="hljs-regexp">/vendor[\\/](j?ruby-.*|bundle)[\\/]/</span>
+  ]
+}
+</code></pre>
+<h2 id=""><a class="dashingAutolink" name="autolink-106"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules"></a><a class="dashingAutolink" name="autolink-20"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules"></a><code>modules</code><a name="-modules-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-107"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: consists of <a class="dashingAutolink" name="autolink-108"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/wrapper"></a><code>wrapper</code> and <a class="dashingAutolink" name="autolink-109"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/definition"></a><code>definition</code> subsettings.</p>
+<p><a class="dashingAutolink" name="autolink-110"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules.wrapper"></a><code>modules.wrapper</code>: <a class="dashingAutolink" name="autolink-111"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/String%2C%20Boolean%20or%20Function"></a><code>String, Boolean or Function</code>: a wrapper that will be wrapped around compiled-to-javascript code in non-vendor directories. Values:</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-112"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/commonjs"></a><code>commonjs</code> (Default) &mdash; CommonJS wrapper.</li>
+<li><a class="dashingAutolink" name="autolink-113"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/amd"></a><code>amd</code> &mdash; AMD <a class="dashingAutolink" name="autolink-114"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/r.js"></a><code>r.js</code>-like wrapper.</li>
+<li><a class="dashingAutolink" name="autolink-115"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code> &mdash; no wrapping. Files will be compiled as-is.</li>
+<li>Function that takes path, data, and a boolean set to <a class="dashingAutolink" name="autolink-116"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/true"></a><code>true</code> if the file is in a vendor directory.</li>
+</ul>
+<p><a class="dashingAutolink" name="autolink-117"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules.definition"></a><code>modules.definition</code>: <a class="dashingAutolink" name="autolink-118"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/String%2C%20Boolean%20or%20Function"></a><code>String, Boolean or Function</code> a code that will be added on top of every generated JavaScript file. Values:</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-119"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/commonjs"></a><code>commonjs</code> (Default) &mdash; CommonJS require definition.</li>
+<li><a class="dashingAutolink" name="autolink-120"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/amd"></a><code>amd</code>, <a class="dashingAutolink" name="autolink-121"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code> &mdash; no definition.</li>
+<li>Function that takes path and data</li>
+</ul>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-122"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%2F%20Same%20as%20%27commonjs%27.%0Amodules%3A%20%7B%0A%20%20wrapper%3A%20%28path%2C%20data%29%20%3D%3E%20%7B%0A%20%20%20%20return%20%60%0Arequire.define%28%7B%24%7Bpath%7D%3A%20function%28exports%2C%20require%2C%20module%29%20%7B%0A%20%20%23%7Bdata%7D%0A%7D%7D%29%3B%5Cn%5Cn%0A%20%20%20%20%60%0A%20%20%7D%0A%7D"></a><code class="lang-javascript hljs"><span class="hljs-comment">// Same as &#39;commonjs&#39;.</span>
+modules: {
+  wrapper: (path, data) =&gt; {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`
+require.define({<span class="hljs-subst">${path}</span>: function(exports, require, module) {
+  #{data}
+}});\n\n
+    `</span>
+  }
+}
+</code></pre>
+<p><a class="dashingAutolink" name="autolink-123"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules.autoRequire"></a><code>modules.autoRequire</code>: <a class="dashingAutolink" name="autolink-124"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code> specifies requires to be automatically added at the end of joined file. The example below will require both &#39;app&#39; and &#39;foo&#39;:</p>
+<pre><a class="dashingAutolink" name="autolink-125"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%2F%20Default%20behaviour.%0Amodules%3A%20%7B%0A%20%20autoRequire%3A%20%7B%0A%20%20%20%20%27javascripts%2Fapp.js%27%3A%20%5B%27app%27%2C%20%27foo%27%5D%0A%20%20%7D%0A%7D"></a><code class="lang-javascript hljs"><span class="hljs-comment">// Default behaviour.</span>
+modules: {
+  autoRequire: {
+    <span class="hljs-string">&#39;javascripts/app.js&#39;</span>: [<span class="hljs-string">&#39;app&#39;</span>, <span class="hljs-string">&#39;foo&#39;</span>]
+  }
+}
+</code></pre>
+<p><a class="dashingAutolink" name="autolink-126"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/modules.nameCleaner"></a><code>modules.nameCleaner</code>: <a class="dashingAutolink" name="autolink-127"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Function"></a><code>Function</code> Allows you to set filterer function for module names,
+for example, change all &#39;app/file&#39; to &#39;file&#39;. Example:</p>
+<pre><a class="dashingAutolink" name="autolink-128"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%2F%20Default%20behaviour.%0Amodules%3A%20%7BnameCleaner%3A%20%28path%29%20%3D%3E%20path.replace%28%2F%5Eapp%5C%2F%2F%2C%20%27%27%29%3B%20%7D"></a><code class="lang-javascript hljs"><span class="hljs-comment">// Default behaviour.</span>
+modules: {nameCleaner: (path) =&gt; path.replace(<span class="hljs-regexp">/^app\//</span>, <span class="hljs-string">&#39;&#39;</span>); }
+</code></pre>
+<pre><a class="dashingAutolink" name="autolink-129"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%2F%20Add%20namespacing%20to%20a%20project.%0Aconst%20name%20%3D%20require%28%27.%2Fpackage.json%27%29.name%3B%0Amodules%3A%20%7BnameCleaner%3A%20%28path%29%20%3D%3E%20path.replace%28%2F%5Eapp%2F%2C%20name%29%3B%20%7D"></a><code class="lang-javascript hljs"><span class="hljs-comment">// Add namespacing to a project.</span>
+<span class="hljs-keyword">const</span> name = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#39;./package.json&#39;</span>).name;
+modules: {nameCleaner: (path) =&gt; path.replace(<span class="hljs-regexp">/^app/</span>, name); }
+</code></pre>
+<h2 id=""><a class="dashingAutolink" name="autolink-130"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/notifications"></a><a class="dashingAutolink" name="autolink-21"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/notifications"></a><code>notifications</code><a name="-notifications-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-131"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Boolean"></a><code>Boolean</code>: enables or disables
+           <a href="http://growl.info/downloads">Growl</a> /
+           <a href="http://www.growlforwindows.com/gfw/help/growlnotify.aspx">Growl for Windows</a> /
+           <a href="https://github.com/alloy/terminal-notifier#download">terminal-notifier</a> /
+           <a href="http://packages.ubuntu.com/search?keywords=libnotify-bin">libnotify for Ubuntu</a>
+           notifications.
+           Default value is <a class="dashingAutolink" name="autolink-132"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/true"></a><code>true</code> (enabled).</p>
+<p>When set to <a class="dashingAutolink" name="autolink-133"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/true"></a><code>true</code>, only errors trigger notifications. If you want to display success, warning, or informational messages, set this to an array of strings with the levels you want to see, e.g. <a class="dashingAutolink" name="autolink-134"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%5B%27error%27%2C%20%27warn%27%2C%20%27info%27%5D"></a><code>[&#39;error&#39;, &#39;warn&#39;, &#39;info&#39;]</code>. See <a href="https://github.com/paulmillr/loggy">documentation for the Loggy package</a> for complete details.</p>
+<h2 id=""><a class="dashingAutolink" name="autolink-135"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/notificationsTitle"></a><a class="dashingAutolink" name="autolink-22"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/notificationsTitle"></a><code>notificationsTitle</code><a name="-notificationstitle-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-136"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/String"></a><code>String</code>: sets the title used in notifications. Default value is <a class="dashingAutolink" name="autolink-137"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Brunch"></a><code>Brunch</code>. <a href="http://brunch.io/docs/config#notifications">The notifications setting</a> must be enabled for this to have any effect.</p>
+<h2 id=""><a class="dashingAutolink" name="autolink-138"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/optimize"></a><a class="dashingAutolink" name="autolink-23"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/optimize"></a><code>optimize</code><a name="-optimize-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-139"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Boolean"></a><code>Boolean</code>: determines if minifiers should be enabled or not. Default value is <a class="dashingAutolink" name="autolink-140"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code> (<a class="dashingAutolink" name="autolink-141"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/true"></a><code>true</code> if you run <a class="dashingAutolink" name="autolink-142"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch%20build%20--production"></a><code>brunch build --production</code>).</p>
+<h2 id=""><a class="dashingAutolink" name="autolink-143"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/server"></a><a class="dashingAutolink" name="autolink-24"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/server"></a><code>server</code><a name="-server-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-144"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: contains params of webserver that runs on <a class="dashingAutolink" name="autolink-145"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch%20watch%20--server"></a><code>brunch watch --server</code>.</p>
+<p>If a <a class="dashingAutolink" name="autolink-146"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch-server.js"></a><code>brunch-server.js</code> or <a class="dashingAutolink" name="autolink-147"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch-server.coffee"></a><code>brunch-server.coffee</code> file exists at the root of your project, Brunch will treat this as your custom web server. This can be overriden with the <a class="dashingAutolink" name="autolink-148"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/server.path"></a><code>server.path</code> option.</p>
+<p>The server script must export a function that starts your custom server, either as the default exported module. This function should return an instance of <a href="https://nodejs.org/api/http.html#http_class_http_server"></a><a class="dashingAutolink" name="autolink-149"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/http.Server"></a><code>http.Server</code> or an object containing a <a class="dashingAutolink" name="autolink-150"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/close"></a><code>close</code> property assigned to a function that shuts down the server. Examples:</p>
+<pre><a class="dashingAutolink" name="autolink-151"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%2F%20javascript%20example%20using%20default%20export%20and%20node%20http%20core%20module%0A%20%20module.exports%20%3D%20%28port%2C%20path%2C%20callback%29%20%3D%3E%20%7B%0A%20%20%20%20%2F%2F%20your%20custom%20server%20code%0A%20%20%20%20%2F%2F%20callback%20doesn%27t%20take%20any%20parameters%20and%20%28if%20provided%29%20should%20be%20called%20after%20server%20is%20started%0A%20%20%20%20%2F%2F%20up%20to%20you%20to%20respect%20the%20%60port%60%20argument%20allowing%20users%20to%20change%20it%20from%20the%20CLI%0A%20%20%20%20const%20myServer%20%3D%20http.createServer%28%29%3B%0A%20%20%20%20myServer.listen%28port%2C%20callback%29%3B%0A%20%20%20%20myServer.on%28%27request%27%2C%20function%28req%2C%20res%29%7B%2F%2A%20do%20stuff%20%2A%2F%7D%29%3B%0A%20%20%20%20return%20myServer%3B%0A%20%20%7D"></a><code class="lang-javascript hljs">  <span class="hljs-comment">// javascript example using default export and node http core module</span>
+  <span class="hljs-built_in">module</span>.exports = (port, path, callback) =&gt; {
+    <span class="hljs-comment">// your custom server code</span>
+    <span class="hljs-comment">// callback doesn&#39;t take any parameters and (if provided) should be called after server is started</span>
+    <span class="hljs-comment">// up to you to respect the `port` argument allowing users to change it from the CLI</span>
+    <span class="hljs-keyword">const</span> myServer = http.createServer();
+    myServer.listen(port, callback);
+    myServer.on(<span class="hljs-string">&#39;request&#39;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{<span class="hljs-comment">/* do stuff */</span>});
+    <span class="hljs-keyword">return</span> myServer;
+  }
+</code></pre>
+<pre><a class="dashingAutolink" name="autolink-152"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%2F%2F%20Example%20using%20custom%20%60close%60%20method.%0A%20%20module.exports%20%3D%20%28port%2C%20path%2C%20callback%29%20%3D%3E%20%7B%0A%20%20%20%20%2F%2F%20custom%20server%20code%0A%20%20%20%20return%20%7Bclose%3A%20%28%29%20%3D%3E%20%7B%20%2F%2A%20code%20for%20shutting%20down%20server%20%2A%2F%20%7D%7D%0A%20%20%7D"></a><code class="lang-javascript hljs">  <span class="hljs-comment">// Example using custom `close` method.</span>
+  <span class="hljs-built_in">module</span>.exports = (port, path, callback) =&gt; {
+    <span class="hljs-comment">// custom server code</span>
+    <span class="hljs-keyword">return</span> {close: () =&gt; { <span class="hljs-comment">/* code for shutting down server */</span> }}
+  }
+</code></pre>
+<ul>
+<li><a class="dashingAutolink" name="autolink-153"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/path"></a><code>path</code>: (optional) custom path to nodejs file that will be loaded to run your custom server.</li>
+</ul>
+<p>If a custom server is not present, Brunch will use <a href="https://github.com/paulmillr/pushserve">pushserve</a>. If using your own, only <a class="dashingAutolink" name="autolink-154"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/port"></a><code>port</code> from the following options can be set from the config.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-155"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/port"></a><code>port</code>: port on which server will run. Default: <a class="dashingAutolink" name="autolink-156"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/3333"></a><code>3333</code></li>
+<li><a class="dashingAutolink" name="autolink-157"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/hostname"></a><code>hostname</code>: hostname on which server will run. Default <a class="dashingAutolink" name="autolink-158"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/localhost"></a><code>localhost</code>, which only permits connections from the same computer. Set to <a class="dashingAutolink" name="autolink-159"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/0.0.0.0"></a><code>0.0.0.0</code> to permit access from other computers.</li>
+<li><a class="dashingAutolink" name="autolink-160"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/base"></a><code>base</code>: base URL from which to serve the app. Default: <a class="dashingAutolink" name="autolink-161"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%27%27"></a><code>&#39;&#39;</code></li>
+<li><a class="dashingAutolink" name="autolink-162"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/indexPath"></a><code>indexPath</code>: path to serve when base URL is requested. Default <a class="dashingAutolink" name="autolink-163"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/index.html"></a><code>index.html</code></li>
+<li><a class="dashingAutolink" name="autolink-164"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/noPushState"></a><code>noPushState</code>: respond with 404 instead of <a class="dashingAutolink" name="autolink-165"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/indexPath"></a><code>indexPath</code> for unknown paths. Default <a class="dashingAutolink" name="autolink-166"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code></li>
+<li><a class="dashingAutolink" name="autolink-167"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/noCors"></a><code>noCors</code>: disables CORS headers. Default <a class="dashingAutolink" name="autolink-168"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code></li>
+<li><a class="dashingAutolink" name="autolink-169"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/stripSlashes"></a><code>stripSlashes</code>: removes trailing slashes from URLs. Default <a class="dashingAutolink" name="autolink-170"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code></li>
+</ul>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-171"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/server%3A%20%7B%0A%20%20port%3A%206832%2C%0A%20%20base%3A%20%27%2Fmyapp%27%2C%0A%20%20stripSlashes%3A%20true%0A%7D"></a><code class="lang-javascript hljs">server: {
+  port: <span class="hljs-number">6832</span>,
+  base: <span class="hljs-string">&#39;/myapp&#39;</span>,
+  stripSlashes: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<ul>
+<li><a class="dashingAutolink" name="autolink-172"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/command"></a><code>command</code>: command to launch a non-nodejs server as a child process. Ex: <a class="dashingAutolink" name="autolink-173"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/server%3A%20command%3A%20%27php%20-S%200.0.0.0%3A3000%20-t%20public%27"></a><code>server: command: &#39;php -S 0.0.0.0:3000 -t public&#39;</code></li>
+</ul>
+<h2 id=""><a class="dashingAutolink" name="autolink-174"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/sourceMaps"></a><a class="dashingAutolink" name="autolink-25"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/sourceMaps"></a><code>sourceMaps</code><a name="-sourcemaps-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-175"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Boolean"></a><code>Boolean</code>: enables or disables Source Map generation. Default value is <a class="dashingAutolink" name="autolink-176"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/true"></a><code>true</code> (enabled), <a class="dashingAutolink" name="autolink-177"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code> (disabled) if you run <a class="dashingAutolink" name="autolink-178"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch%20build%20--production"></a><code>brunch build --production</code>.
+<a class="dashingAutolink" name="autolink-179"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/String"></a><code>String</code>:</p>
+<ul>
+<li>set to <a class="dashingAutolink" name="autolink-180"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%27old%27"></a><code>&#39;old&#39;</code> to use the old <a class="dashingAutolink" name="autolink-181"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%40"></a><code>@</code> control character instead of <a class="dashingAutolink" name="autolink-182"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%23"></a><code>#</code>.</li>
+<li>set to <a class="dashingAutolink" name="autolink-183"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/%27absoluteUrl%27"></a><code>&#39;absoluteUrl&#39;</code> to set the <a class="dashingAutolink" name="autolink-184"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/sourceMappingURL"></a><code>sourceMappingURL</code> to the complete URL path starting from <a class="dashingAutolink" name="autolink-185"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/config.paths.public"></a><code>config.paths.public</code></li>
+</ul>
+<h2 id=""><a class="dashingAutolink" name="autolink-186"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/fileListInterval"></a><a class="dashingAutolink" name="autolink-26"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/fileListInterval"></a><code>fileListInterval</code><a name="-filelistinterval-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-187"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Integer"></a><code>Integer</code>: Sets an interval in ms which determines how often brunch file list should be
+checked for new files. Default <a class="dashingAutolink" name="autolink-188"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/65"></a><code>65</code>.</p>
+<p>On large projects and/or environments with slow disk I/O, the value may need to be increased
+to ensure a <a class="dashingAutolink" name="autolink-189"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch%20build"></a><code>brunch build</code> completes properly in one cycle. However, higher values harm
+<a class="dashingAutolink" name="autolink-190"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch%20watch"></a><code>brunch watch</code> performance, so consider changing it in an environment-specific way using
+<a class="dashingAutolink" name="autolink-191"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides"></a><code>overrides</code>.</p>
+<h2 id=""><a class="dashingAutolink" name="autolink-192"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides"></a><a class="dashingAutolink" name="autolink-27"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides"></a><code>overrides</code><a name="-overrides-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-193"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: Alternate config settings to activate via command line switches (<a class="dashingAutolink" name="autolink-194"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/--env%20SETTING"></a><code>--env SETTING</code>). Multiple sets of overrides can be applied at once using a comma-separated list (<a class="dashingAutolink" name="autolink-195"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/--env%20foo%2Cbar"></a><code>--env foo,bar</code>).</p>
+<p>It is also possible to set an additional environment value using the <a class="dashingAutolink" name="autolink-196"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/BRUNCH_ENV"></a><code>BRUNCH_ENV</code> environment variable. This can be especially useful when combined with <a href="https://npmjs.org/package/dotenv">dotenv</a>.</p>
+<p>Examples:</p>
+<pre><a class="dashingAutolink" name="autolink-197"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch%20watch%20--env%20testing%0ABRUNCH_ENV%3D%22testing%22%20brunch%20build"></a><code class="lang-sh hljs bash">brunch watch --env testing
+BRUNCH_ENV=<span class="hljs-string">&#34;testing&#34;</span> brunch build
+</code></pre>
+<p>Defaults:</p>
+<pre><a class="dashingAutolink" name="autolink-198"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides%3A%20%7B%0A%20%20production%3A%20%7B%0A%20%20%20%20optimize%3A%20true%2C%0A%20%20%20%20sourceMaps%3A%20false%2C%0A%20%20%20%20plugins%3A%20%7BautoReload%3A%20%7Benabled%3A%20false%7D%7D%0A%20%20%7D%0A%7D"></a><code class="lang-javascript hljs">overrides: {
+  production: {
+    optimize: <span class="hljs-literal">true</span>,
+    sourceMaps: <span class="hljs-literal">false</span>,
+    plugins: {autoReload: {enabled: <span class="hljs-literal">false</span>}}
+  }
+}
+</code></pre>
+<p>Caveats:</p>
+<ul>
+<li>If both <a class="dashingAutolink" name="autolink-199"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files%5B%3Ctype%3E%5D.joinTo"></a><code>files[&lt;type&gt;].joinTo</code> and <a class="dashingAutolink" name="autolink-200"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides%5B%3Cenv%3E%5D.files%5B%3Ctype%3E%5D.joinTo"></a><code>overrides[&lt;env&gt;].files[&lt;type&gt;].joinTo</code> are defined, the value of <a class="dashingAutolink" name="autolink-201"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files%5B%3Ctype%3E%5D.joinTo"></a><code>files[&lt;type&gt;].joinTo</code> will be overwritten by, not merged with, <a class="dashingAutolink" name="autolink-202"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides"></a><code>overrides</code>.</li>
+<li>If both <a class="dashingAutolink" name="autolink-203"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files%5B%3Ctype%3E%5D.order"></a><code>files[&lt;type&gt;].order</code> and <a class="dashingAutolink" name="autolink-204"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides%5B%3Cenv%3E%5D.files%5B%3Ctype%3E%5D.order"></a><code>overrides[&lt;env&gt;].files[&lt;type&gt;].order</code> are defined, the value of <a class="dashingAutolink" name="autolink-205"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/files%5B%3Ctype%3E%5D.order"></a><code>files[&lt;type&gt;].order</code> will be overwritten by, not merged with, <a class="dashingAutolink" name="autolink-206"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides"></a><code>overrides</code>.</li>
+</ul>
+<p>In other words, <a class="dashingAutolink" name="autolink-207"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/joinTo"></a><code>joinTo</code> and <a class="dashingAutolink" name="autolink-208"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/order"></a><code>order</code> don&#39;t merge if defined under <a class="dashingAutolink" name="autolink-209"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/overrides"></a><code>overrides</code>, but you still can override one while inheriting the base setting for the other.</p>
+<h2 id=""><a class="dashingAutolink" name="autolink-210"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/watcher"></a><a class="dashingAutolink" name="autolink-28"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/watcher"></a><code>watcher</code><a name="-watcher-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-211"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: Optional settings for
+<a href="https://github.com/paulmillr/chokidar">chokidar</a>
+file watching library used in brunch.</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-212"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/usePolling"></a><code>usePolling</code> (default: <a class="dashingAutolink" name="autolink-213"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/false"></a><code>false</code>) Whether to use fs.watchFile
+  (backed by polling), or fs.watch.
+  Polling is slower but can be more reliable.</li>
+</ul>
+<h2 id=""><a class="dashingAutolink" name="autolink-214"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/hooks"></a><a class="dashingAutolink" name="autolink-29"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/hooks"></a><code>hooks</code><a name="-hooks-">&nbsp;</a></h2>
+<p><a class="dashingAutolink" name="autolink-215"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Object"></a><code>Object</code>: Optional setting to specify handlers for different moments of building cycle.
+Possible values:</p>
+<ul>
+<li><p><a class="dashingAutolink" name="autolink-216"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/onCompile"></a><code>onCompile</code> - <a class="dashingAutolink" name="autolink-217"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/Function"></a><code>Function</code>: Optional callback to be called every time brunch completes a compilation cycle. It is passed a <a class="dashingAutolink" name="autolink-218"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/generatedFiles"></a><code>generatedFiles</code> array, as well as <a class="dashingAutolink" name="autolink-219"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/changedAssets"></a><code>changedAssets</code> array. Each member of <a class="dashingAutolink" name="autolink-220"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/generatedFiles"></a><code>generatedFiles</code> array is an object with:</p>
+<ul>
+<li><a class="dashingAutolink" name="autolink-221"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/path"></a><code>path</code> &mdash; path of the compiled file</li>
+<li><a class="dashingAutolink" name="autolink-222"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/sourceFiles"></a><code>sourceFiles</code> &mdash; array of objects representing each source file</li>
+<li><p><a class="dashingAutolink" name="autolink-223"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/allSourceFiles"></a><code>allSourceFiles</code> array of objects representing each source file &mdash; this one also includes files that don&#39;t belong to the original type (e.g. if a styles compiler adds a JS module, path would the the concated JS file, and one of the <a class="dashingAutolink" name="autolink-224"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/allSourceFiles"></a><code>allSourceFiles</code> will be a style file</p>
+<p>Each member of <a class="dashingAutolink" name="autolink-225"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/changedAssets"></a><code>changedAssets</code> array is an object with:</p>
+</li>
+<li><p><a class="dashingAutolink" name="autolink-226"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/path"></a><code>path</code> &mdash; original path of an asset</p>
+</li>
+<li><p><a class="dashingAutolink" name="autolink-227"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/destinationPath"></a><code>destinationPath</code> &mdash; path of an asset in the public directory</p>
+<p>Example:</p>
+<pre><a class="dashingAutolink" name="autolink-228"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/hooks%3A%20%7B%0AonCompile%3A%20%28generatedFiles%2C%20changedAssets%29%20%3D%3E%20%7B%0A%20%20console.log%28generatedFiles.map%28f%20%3D%3E%20f.path%29%29%3B%0A%7D%0A%7D"></a><code class="lang-javascript hljs">hooks: {
+onCompile: (generatedFiles, changedAssets) =&gt; {
+  <span class="hljs-built_in">console</span>.log(generatedFiles.map(f =&gt; f.path));
+}
+}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="">Tips<a name="tips">&nbsp;</a></h2>
+<ul>
+<li>You can use CoffeeScript to write configuration files. This way they&#39;ll be
+much shorter and concise. Simply create a file called <a class="dashingAutolink" name="autolink-229"></a><a class="dashAnchor" name="//apple_ref/cpp/Module/brunch-config.coffee"></a><code>brunch-config.coffee</code>.</li>
+</ul>
+<div class="container doc-nav"><div class="grid"><div class="grid__item one-whole lap-and-up-one-half"><a href="http://brunch.io/docs/commands">&larr; Commands</a></div><div style="text-align: right;" class="grid__item one-whole lap-and-up-one-half"><a href="http://brunch.io/docs/plugins">Plugin API &rarr;</a></div><div class="grid__item one-whole"><span class="note"><a href="https://github.com/brunch/brunch.github.io/tree/master/app/assets/_docs/config.md">Edit config.md on GitHub</a></span></div></div></div></div></div><footer><hr class="rule"/><p><small>Hosted on <a href="https://github.com/brunch/brunch.github.com">GitHub Pages</a>. The content on this website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">CC BY 3.0</a>. Logo by <a href="http://helle.in/">Michael Hellein</a></small></p></footer></div><script src="./Brunch_ Config &mdash; Brunch_files/app.js"></script><script>require('init');
+</script>  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '4f1631bbcb25bc723b000007');
+      t.src = '//secure.gaug.es/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+<div></div></body></html>
