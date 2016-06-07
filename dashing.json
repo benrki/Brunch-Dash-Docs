@@ -1,6 +1,6 @@
 {
     "name": "Brunch",
-    "package": "brunch",
+    "package": "Brunch",
     "index": "index.html",
     "selectors": {
         "h2 > code": "Module"

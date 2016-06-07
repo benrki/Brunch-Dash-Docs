@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>brunch</string>
+	<string>Brunch</string>
 	<key>CFBundleName</key>
 	<string>Brunch</string>
 	<key>DocSetPlatformFamily</key>
-	<string>brunch</string>
+	<string>Brunch</string>
 	<key>isDashDocset</key>
 	<true/>
 	<key>DashDocSetFamily</key>
